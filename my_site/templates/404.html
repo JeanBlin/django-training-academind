@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Page not found{% endblock title %}
+
+{% block ccs_files %}
+    <link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock ccs_files %}
+
+{% block content %}
+    <h2>Error 404! Page not found!</h2>
+    <p>Sorry, we couldn't find the page you tried to reach.</p>
+{% endblock content %}
