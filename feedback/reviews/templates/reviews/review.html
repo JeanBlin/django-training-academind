@@ -1,9 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'reviews/styles.css' %}">
     <title>Your review</title>
 </head>
 <body>
@@ -14,7 +16,14 @@
         {% endif %} {% endcomment %}
         {% comment %} <label for='username'>Your name</label>
         <input type="text" id='username' name='username'> {% endcomment %}
-        {{ form }}
+        {% comment %} {{ form }} {% endcomment %}
+        {% for field in form %}
+            <div class='form-control {% if field.errors %}errors{% endif %}'>
+                {{ field.label_tag }}
+                {{ field}}
+                {{ field.errors}}
+            </div>
+        {% endfor %}
         <button type='submit'>Send</button>
     </form>
 </body>
